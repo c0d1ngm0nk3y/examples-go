@@ -4,12 +4,9 @@ import "math"
 
 //IsPrime checks if it is a Prime
 func IsPrime(number int) bool {
-	if number < 2 {
-		return false
-	} else if number == 2 {
-		return true
-	} else if isDividableBy(number, 2) {
-		return false
+	applicable, result := isPrimeSpecialCase(number)
+	if applicable {
+		return result
 	}
 
 	maxDivider := calculateMaxPossibleDivider(number)
@@ -20,6 +17,18 @@ func IsPrime(number int) bool {
 		}
 	}
 	return true
+}
+
+func isPrimeSpecialCase(number int) (bool, bool) {
+	if number < 2 {
+		return true, false
+	} else if number == 2 {
+		return true, true
+	} else if isDividableBy(number, 2) {
+		return true, false
+	}
+
+	return false, false
 }
 
 func calculateMaxPossibleDivider(number int) int {
