@@ -37,3 +37,7 @@ func Test113(t *testing.T) {
 func Test169(t *testing.T) {
 	assert.Equal(t, false, IsPrime(169))
 }
+
+func TestMinus10(t *testing.T) {
+	assert.Equal(t, false, IsPrime(10))
+}
