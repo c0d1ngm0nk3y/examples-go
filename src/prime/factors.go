@@ -4,10 +4,16 @@ package prime
 func GetPrimeFactors(number int) []int {
 	var factors []int
 
-	if number < 2 {
-		return factors
+	for ii := 2; ii <= number; ii++ {
+		if isDividableBy(number, ii) {
+			factors = append(factors, ii)
+			number = number / ii
+			moreFactors := GetPrimeFactors(number)
+			factors = append(factors, moreFactors...)
+			return factors
+		}
+
 	}
 
-	factors = append(factors, number)
 	return factors
 }
