@@ -1,5 +1,9 @@
 package roman
 
+import (
+	"sort"
+)
+
 //ToArabic string ->int
 func ToArabic(romanString string) int {
 	literals := map[string]int{
@@ -28,4 +32,35 @@ func ToArabic(romanString string) int {
 	}
 
 	return sum
+}
+
+//FromArabic number -> string
+func FromArabic(number int) string {
+	values := map[int]string{
+		1:    "I",
+		5:    "V",
+		10:   "X",
+		50:   "L",
+		100:  "C",
+		500:  "D",
+		1000: "M",
+	}
+
+	result := ""
+
+	keys := []int{}
+	for k := range values {
+		keys = append(keys, k)
+	}
+	sort.Sort(sort.Reverse(sort.IntSlice(keys)))
+
+	for _, k := range keys {
+		for k <= number {
+			value := values[k]
+			number = number - k
+			result = result + value
+		}
+	}
+
+	return result
 }

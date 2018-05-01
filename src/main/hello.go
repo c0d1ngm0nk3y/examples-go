@@ -12,7 +12,8 @@ func main() {
 	fmt.Printf("113 is prime: %v\n", prime.IsPrime(113))
 	factors := prime.GetPrimeFactors(60)
 	fmt.Printf("Factors of 60: %v (%d)\n", factors, len(factors))
-	fmt.Printf("MLIX -> %d", roman.ToArabic("MLIX"))
+	fmt.Printf("MLIX -> %d\n", roman.ToArabic("MLIX"))
+	fmt.Printf("1997 -> %s", roman.FromArabic(1997))
 }
 
 //Sum is guessing what?
