@@ -55,10 +55,26 @@ func FromArabic(number int) string {
 	sort.Sort(sort.Reverse(sort.IntSlice(keys)))
 
 	for _, k := range keys {
+
+		if k == number+1 {
+			number++
+			result += "I"
+		} else if k == number+10 {
+			number = number + 10
+			result += "X"
+		} else if k == number+100 {
+			number = number + 100
+			result += "C"
+		}
+
 		for k <= number {
 			value := values[k]
 			number = number - k
 			result = result + value
+		}
+
+		if number == 0 {
+			break
 		}
 	}
 
