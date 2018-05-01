@@ -93,3 +93,15 @@ func TestFromArabic400(t *testing.T) {
 func TestFromArabic440(t *testing.T) {
 	assert.Equal(t, "CDXL", FromArabic(440))
 }
+
+func TestFromArabic1947(t *testing.T) {
+	assert.Equal(t, "MCMXLVII", FromArabic(1947))
+}
+
+func TestFromArabic123(t *testing.T) {
+	assert.Equal(t, "CXXIII", FromArabic(123))
+}
+
+func TestFromArabic1979(t *testing.T) {
+	assert.Equal(t, "MCMLXXIX", FromArabic(1979))
+}
