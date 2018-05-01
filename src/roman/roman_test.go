@@ -89,3 +89,7 @@ func TestFromArabic40(t *testing.T) {
 func TestFromArabic400(t *testing.T) {
 	assert.Equal(t, "CD", FromArabic(400))
 }
+
+func TestFromArabic440(t *testing.T) {
+	assert.Equal(t, "CDXL", FromArabic(440))
+}

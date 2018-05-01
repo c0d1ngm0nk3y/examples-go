@@ -56,13 +56,13 @@ func FromArabic(number int) string {
 
 	for _, k := range keys {
 
-		if k == number+1 {
+		if isBetween(number, k-2, k) && (k <= 10) && (k >= 5) {
 			number++
 			result += "I"
-		} else if k == number+10 {
+		} else if isBetween(number, k-11, k) && (k <= 100) && (k >= 50) {
 			number = number + 10
 			result += "X"
-		} else if k == number+100 {
+		} else if isBetween(number, k-101, k) && (k <= 1000) && (k >= 500) {
 			number = number + 100
 			result += "C"
 		}
@@ -79,4 +79,8 @@ func FromArabic(number int) string {
 	}
 
 	return result
+}
+
+func isBetween(number int, lower int, upper int) bool {
+	return (lower < number) && (number < upper)
 }
