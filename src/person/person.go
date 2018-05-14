@@ -18,3 +18,13 @@ func (p Person) sayHello() string {
 func (p Person) getName() (string, string) {
 	return p.firstname, p.lastname
 }
+
+//FormalPerson is also a Person
+type FormalPerson struct {
+	Person
+}
+
+func (fp FormalPerson) sayHello() string {
+	s := fmt.Sprintf("I am %s, %s", fp.lastname, fp.firstname)
+	return s
+}
