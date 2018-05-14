@@ -43,3 +43,12 @@ func TestFormalPersonSaysHello(t *testing.T) {
 	hello := fp.sayHello()
 	assert.Equal(t, "I am Pannemans, Ralf", hello)
 }
+
+func TestConfusedPersonSaysHello(t *testing.T) {
+	p := Person{"Ralf", "Pannemans"}
+	fp := FormalPerson{Person: p}
+	cp := ConfusedPerson{FormalPerson: fp, Person: p}
+
+	hello := cp.FormalPerson.sayHello()
+	assert.Equal(t, "I am Pannemans, Ralf", hello)
+}

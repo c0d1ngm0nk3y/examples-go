@@ -28,3 +28,9 @@ func (fp FormalPerson) sayHello() string {
 	s := fmt.Sprintf("I am %s, %s", fp.lastname, fp.firstname)
 	return s
 }
+
+//ConfusedPerson is also a Person AND FormalPerson
+type ConfusedPerson struct {
+	Person
+	FormalPerson
+}
